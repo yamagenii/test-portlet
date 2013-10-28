@@ -1,0 +1,59 @@
+#*
+ * Aipo is a groupware program developed by Aimluck,Inc.
+ * Copyright (C) 2004-2011 Aimluck,Inc.
+ * http://www.aipo.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *#
+
+## ---------------------------------------------------------------------------
+<table width="100%" border="0" cellpadding="5" cellspacing="1"><tbody>
+<tr>
+<td bgcolor="#FFFFFF" align="center">
+<table width="500" height="200" border="0" cellpadding="20" cellspacing="0"><tbody>
+<tr>
+<td align="center">
+<table border="0" cellspacing="0" cellpadding="0"><tbody>
+<tr>
+<td nowrap="nowrap">
+#if(!$alias)
+<strong>$l10n.WAR_SESSION_TIMEOUT</strong><br /><br />
+$l10n.WAR_RELOADING
+<div dojoType="aimluck.widget.Timeout" redirecturl="$!jslink.getPortletById($!portlet.ID)" >timeout</div>
+#else
+<strong>$l10n.WAR_NO_PAGE</strong><br /><br />
+$l10n.ERROR_CANNOT_USE_PAGE<br /><br />
+$l10n.ERROR_WRONG_URL2<br />
+・$l10n.WAR_ALIAS_FAILED_INSTALL<br /><br />
+$l10n.WAR_AGAIN2
+
+#if($config.getString("support.mail"))
+ <br />
+$l10n.WAR_NO_ERROR_URL_INQUILY
+ <br />
+[e-mail : <A Href="mailto:$config.getString("support.mail")">$config.getString("support.mail")</A> ]
+ <br />
+ <br />
+#end
+#end
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+

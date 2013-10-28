@@ -1,0 +1,34 @@
+#*
+ * Aipo is a groupware program developed by Aimluck,Inc.
+ * Copyright (C) 2004-2011 Aimluck,Inc.
+ * http://www.aipo.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *#
+
+## ---------------------------------------------------------------------------
+##pagetitle
+#ALcell_hr($career '')#ALcell_center_header($career)
+$l10n.WAR_ALIAS_INFO
+#ALcell_center_footer($career)#ALcell_hr($career '')
+$l10n.WAR_FINISH_TRIAL_PERIOD_AND_OREANGE_LICENCE_CELL1 #ALcell_br($career)
+$l10n.WAR_FINISH_TRIAL_PERIOD_AND_OREANGE_LICENCE_CELL2 #ALcell_br($career)
+$l10n.WAR_FINISH_TRIAL_PERIOD_AND_OREANGE_LICENCE_CELL3
+$l10n.WAR_FINISH_TRIAL_PERIOD_AND_OREANGE_LICENCE_CELL4#ALcell_br($career)
+$l10n.WAR_FINISH_TRIAL_PERIOD_AND_OREANGE_LICENCE_CELL5#ALcell_br($career)
+
+$l10n.WAR_USE_DATA_INQUILY_CELL1 #ALcell_br($career)
+$l10n.WAR_USE_DATA_INQUILY_CELL2#ALcell_br($career)
+<a href="http://aipostyle.com/inquiry/" target="_blank">http://aipostyle.com/inquiry/ </a>
+#ALcell_br($career)

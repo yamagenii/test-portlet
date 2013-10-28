@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+
+    Aipo is a groupware program developed by Aimluck,Inc.
+    Copyright (C) 2004-2011 Aimluck,Inc.
+    http://www.aipo.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<root>
+	   <level value ="info" />
+	   <appender-ref ref="jetspeed" />
+	</root>
+
+	<logger name="org.apache.jetspeed" additivity="false">
+		<priority value="debug"/>
+		<appender-ref ref="jetspeed"/>
+	</logger>
+
+	<logger name="org.apache.jetspeed.services" additivity="false">
+		<priority value="debug"/>
+		<appender-ref ref="jetspeedsrv"/>
+	</logger>
+
+	<logger name="org.apache.jetspeed.services.psmlmanager.CastorPsmlManagerService" additivity="false">
+		<priority value="info"/>
+		<appender-ref ref="jetspeedsrv"/>
+	</logger>
+
+	<logger name="org.apache.jetspeed.services.logging.JetspeedLoggingService" additivity="false">
+		<priority value="info"/>
+		<appender-ref ref="turbine"/>
+	</logger>
+
+	<logger name="org.apache.jetspeed.services.portletstats.JetspeedPortletStatsService." additivity="false">
+		<priority value="info"/>
+		<appender-ref ref="access"/>
+	</logger>
+
+	<appender name="jetspeed" class="org.apache.log4j.FileAppender">
+            <param name="File" value="${webappRoot}/WEB-INF/log/jetspeedX.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern"
+  		       value="%d [%t] %-5p %c{1} - %m%n"/>
+            </layout>
+	</appender>
+	
+	<appender name="jetspeedsrv" class="org.apache.log4j.FileAppender">
+            <param name="File" value="${webappRoot}/WEB-INF/log/jetspeedservicesX.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern"
+  		       value="%d [%t] %-5p %c{1} - %m%n"/>
+            </layout>
+	</appender>
+		
+	<appender name="turbine" class="org.apache.log4j.FileAppender">
+            <param name="File" value="${webappRoot}/WEB-INF/log/turbineX.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern"
+  		       value="%d [%t] %-5p %c{1} - %m%n"/>
+            </layout>
+	</appender>
+
+	<appender name="access" class="org.apache.log4j.FileAppender">
+            <param name="File" value="${webappRoot}/WEB-INF/log/access.log" />
+            <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern"
+  		       value="%d [%t] %-5p %c{1} - %m%n"/>
+            </layout>
+	</appender>
+	
+</log4j:configuration>

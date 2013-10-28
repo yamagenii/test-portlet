@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>aipo</artifactId>
+    <groupId>com.aimluck.eip</groupId>
+    <version>7.0.2</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>com.aimluck.eip</groupId>
+  <artifactId>aipo-core</artifactId>
+  <version>${aipo.version}</version>
+  <packaging>jar</packaging>
+
+  <name>Aipo Core Code</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+                <copy todir="../war/target/aipo/WEB-INF/lib"
+                  verbose="false" overwrite="true">
+                  <fileset dir="./target" includes="*-${aipo.version}.jar" />
+                </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.aimluck.eip</groupId>
+      <artifactId>aipo-oms</artifactId>
+      <version>${aipo.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jetspeed</groupId>
+      <artifactId>aipo-jetspeed</artifactId>
+      <version>${aipo.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cayenne</groupId>
+      <artifactId>cayenne</artifactId>
+      <version>2.0.4</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.3</version>
+      <type>jar</type>
+      <classifier>jdk15</classifier>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>2.5.1-final-20040804</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.shindig</groupId>
+      <artifactId>shindig-common</artifactId>
+      <version>2.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mnode.ical4j</groupId>
+      <artifactId>ical4j</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sourceforge.nekohtml</groupId>
+      <artifactId>nekohtml</artifactId>
+      <version>1.9.15</version>
+    </dependency>
+    <dependency>
+      <groupId>com.drewnoakes</groupId>
+      <artifactId>metadata-extractor</artifactId>
+      <version>2.6.2</version>
+    </dependency>
+  </dependencies>
+
+</project>

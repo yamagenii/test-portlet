@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Aipo is a groupware program developed by Aimluck,Inc.
+    Copyright (C) 2004-2011 Aimluck,Inc.
+    http://www.aipo.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<portlets id="01">
+    <metainfo>
+        <title>システム管理者ホーム</title>
+    </metainfo>
+    <security-ref parent="admin-view"/>
+    <layout position="-1" size="-1"/>
+    <control name="TabControl"/>
+    <controller name="TabController"/>
+    <portlets id="101">
+        <metainfo>
+            <title>システム管理</title>
+        </metainfo>
+        <security-ref parent="admin-view"/>
+        <layout position="0" size="-1"/>
+        <control name="MenuControl"/>
+        <controller name="MenuController"/>
+        <entry id="131" parent="SysInfo">
+            <layout position="1" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="121" parent="Account">
+            <layout position="3" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="122" parent="Post">
+            <layout position="4" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="133" parent="Position">
+            <layout position="5" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="123" parent="Facilities">
+            <layout position="6" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="138" parent="GadgetsAdmin">
+            <layout position="7" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="124" parent="WorkflowCategory">
+            <layout position="9" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="137" parent="ExtTimecardSystem">
+            <layout position="10" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="128" parent="AccessControl">
+            <layout position="11" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+        <entry id="129" parent="Eventlog">
+            <layout position="12" size="-1">
+                <property name="column" value="0"/>
+                <property name="row" value="0"/>
+            </layout>
+        </entry>
+    </portlets>
+</portlets>

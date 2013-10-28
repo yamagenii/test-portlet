@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>lib</artifactId>
+    <groupId>com.aimluck.eip</groupId>
+    <version>7.0.2</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>com.aimluck.eip</groupId>
+  <artifactId>aipo-lib-mail</artifactId>
+  <version>${aipo.version}</version>
+  <packaging>jar</packaging>
+
+  <name>Aipo Mail Library</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.4</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+                <copy todir="../../war/target/aipo/WEB-INF/lib"
+                  verbose="false" overwrite="true">
+                  <fileset dir="./target" includes="*-${aipo.version}.jar" />
+                </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>skmail</groupId>
+      <artifactId>skmail</artifactId>
+      <version>0.5</version>
+    </dependency>
+    <dependency>
+      <groupId>skutility</groupId>
+      <artifactId>skutility</artifactId>
+      <version>0.5</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>javamail</groupId>
+      <artifactId>javamail</artifactId>
+      <version>1.4</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+    
+</project>

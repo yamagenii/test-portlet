@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domains project-version="2.0">
+<domain name="SharedDomain">
+	<property name="cayenne.DataDomain.dataContextFactory" value="com.aimluck.eip.cayenne.access.IsolatedDataContextFactory"/>
+	<property name="cayenne.DataRowStore.snapshot.size" value="50000"/>
+
+	<map name="AccountSharedDomainMap" location="AccountSharedDomainMap.map.xml"/>
+	<map name="SecuritySharedDomainMap" location="SecuritySharedDomainMap.map.xml"/>
+	<map name="SharedDomainMap" location="SharedDomainMap.map.xml"/>
+	<map name="SocialSharedDomainMap" location="SocialSharedDomainMap.map.xml"/>
+</domain>
+</domains>

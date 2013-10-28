@@ -1,0 +1,289 @@
+#*
+ * Aipo is a groupware program developed by Aimluck,Inc.
+ * Copyright (C) 2004-2011 Aimluck,Inc.
+ * http://www.aipo.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *#
+## ---------------------------------------------------------------------------
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<base href="$clink.External"></base>
+<meta http-equiv="Content-Language" content="ja" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+#if($config.getString("portal.title"))#set($titlePrefix = $config.getString("portal.title"))#else#set($titlePrefix = "")#end
+<title>${alias}</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta name="copyright" content="${copyright}" />
+<meta http-equiv="X-UA-Compatible" content="IE=emulateIE7,chrome=1" />
+<meta name="robots" content="noindex,follow" />
+#if("${client}" == "IPHONE")
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.6667, maximum-scale=1, user-scalable=no"/>
+	<meta name="format-detection" content="telephone=no"/>
+#end
+<link type="image/x-icon" rel="shortcut icon" href="$!{external_resources_url}/images/favicon.ico?$!{utils.CacheBust}" />
+<link type="image/x-icon" rel="icon" href="$!{external_resources_url}/images/favicon.ico?$!{utils.CacheBust}" />
+#if("${client}" == "IPHONE")<link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/mobile-all.css?$!{utils.CacheBust}" />
+#else<link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/aui-all.css?$!{utils.CacheBust}" />
+#end
+#if($!utils.isAndroidBrowser($data) && "${client}" == "IPHONE")
+	<link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/android.css?$!{utils.CacheBust}" />
+#end
+#if($!utils.isAndroid2Browser($data) && "${client}" == "IPHONE")
+	<link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/android-2.x.css?$!{utils.CacheBust}" />
+#end
+<link rel="apple-touch-icon-precomposed" href="$!{external_resources_url}/themes/iphone/img/apple-touch-icon-precomposed.png" />
+<link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/font-awesome.min.css" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="${external_resources_url}/themes/$!{theme}/css/font-awesome-ie7.min.css" /><![endif]-->
+</head>
+<body onload="aipo.container.renderGadgets()">
+<div id="modalDialog" class="modalDialog" style="display:none"></div>
+<div id="imageDialog" class="modalDialog imageDialog" style="display:none"></div>
+#if($!utils.isAndroid2Browser($data))
+<script type="text/javascript">
+function androidLocale(){
+  var result = null;
+  try {
+    result = navigator.userAgent.match(/Android \d+(?:\.\d+){1,2}; [a-z]{2}-[a-z]{2}/).toString().match(/[a-z]{2}-[a-z]{2}/).toString().match(/^[a-z]{2}/).toString();
+  } catch (e) {
+    result = null;
+  }
+  if (!result) {
+    result = 'ja';
+  }
+  return result;
+}
+</script>
+#end
+#if("$isXDomain" == "true")
+<script type="text/javascript">
+  djConfig = {
+    xDomainBasePath: '$!{external_resources_url}/javascript',
+    cacheBust: '$!{utils.CacheBust}',
+    siteTitle: '$!{alias}'
+	#if($!utils.isAndroid2Browser($data)) ,locale: androidLocale() #end
+  };
+</script>
+#ALjavascriptCache("javascript/dojo/dojo.xd.js")
+#ALjavascript("javascript/aipo.xd.js")
+#else
+<script type="text/javascript">
+  djConfig = {
+    cacheBust: '$!{utils.CacheBust}',
+    siteTitle: '$!{alias}'
+	#if($!utils.isAndroid2Browser($data)) ,locale: androidLocale() #end
+  };
+</script>
+#ALjavascriptCache("javascript/dojo/dojo.js")
+#ALjavascript("javascript/aipo.js")
+#end
+<!-- WRAPPER -->
+#if (("$!{client}" == "IPAD" && "$!{clientVer}" == "4") || "$!{client}" == "IPHONE" )
+<div id="wrapper">
+#elseif ("${client}" == "PCIPHONE")
+<div id="wrapper" class="mb30">
+#elseif (${start_guide_popup})
+#if($data.User.isAdmin())
+<div id="wrapper"  style="margin-bottom : 156px">
+#else
+<div id="wrapper"  style="margin-bottom : 26px">
+#end
+#else
+<div id="wrapper"  style="margin-bottom : 26px">
+#end
+
+##if("$!{client}" != "IPHONE")
+$!jnavigation.setTemplate($config.getString("topnav.vm"))
+##end
+$screen_placeholder
+#if ($config.getBoolean("bottomnav.enable") == true)
+$!jnavigation.setTemplate($config.getString("bottomnav.vm"))
+#end
+
+</div>
+<!-- /WRAPPER -->
+<script language="JavaScript" type="text/javascript">
+//<![CDATA[
+
+dojo.require("aimluck.widget.Dialog");
+
+dojo.addOnLoad(function() {
+	aipo.customize.positionInitialize();
+    #if (!${tutorialForbid} && $data.User.hasLoggedIn())
+    aipo.tutorial.showDialog('$jslink.getTemplate("TutorialScreen")');
+    #end
+#if ($data.User.hasLoggedIn())
+    gadgets.rpc.setRelayUrl("sharedStateIframe", "$relayUrl");
+    gadgets.rpc.setAuthToken("sharedStateIframe", "$rpctoken");
+    dojo.byId('sharedStateIframe').src='$checkUrl';
+    if(window.webkitNotifications) {
+      aipo.container.gadgetService.requestDesktopNotifyEnable();
+    }
+#end
+});
+
+##ipad4のレイアウト調整
+#if("$!{client}" == "IPAD" && "$!{clientVer}" == "4")
+	var min = 0;
+	if(document.all) {
+		min += document.documentElement.clientHeight;
+	}
+	else {
+		min += innerHeight;
+	}
+	min -= 105;
+	dojo.query(".roundMainWrapper").forEach(function(item) {
+    	item.style.minHeight = (min + "px");
+	});
+#end
+##ipadでは、ツールチップを表示させない。
+#if("$!{client}" != "IPAD")
+scheduleTooltipEnable = true;
+#else
+scheduleTooltipEnable = false;
+#end
+var dispChanger = false;
+#if("${client}" == "PCIPHONE")
+	dispChanger = true;
+#end
+#if ("$!{client}" != "IPAD")
+dojo.require("dojo.dnd.Source");
+dojo.require("aipo.customize.form");
+
+dojo.addOnLoad(function() {
+
+	aipo.customize.addAutoHideMenuTrigger();
+
+    var containers = dojo.query('.container');
+    var containerSources = [];
+    for(var c = 0; c < containers.length ; c++){
+        var container = new dojo.dnd.Source(containers[c], {
+            withHandles: true,
+            copyOnly: false
+        });
+        container.onSelectStart = function(e){
+		    if(this.isDragging){
+			    dojo.stopEvent(e);
+		    }
+        };
+        containerSources.push(container);
+    }
+
+
+    for(var c = 0; c < containers.length ; c++){
+        dojo.connect(containerSources[c], "onDndStart", containers[c], function(){
+            dojo.addClass(this, 'dojoDndContainerItemOver');
+            aipo.customize.hideMenu();
+        });
+
+        dojo.connect(containerSources[c], "onDndCancel", containers[c], function(){
+            dojo.removeClass(this, 'dojoDndContainerItemOver');
+        });
+
+        dojo.connect(container, "onDndDrop", containerSources[c], function(source, nodes, copy, target){
+            if (this == target) {
+                if (copy) {
+                    nodes.orphan();
+                }
+                var params = '';
+                var cols = dojo.query('.container');
+                for(var c = 0; c < cols.length ; c++){
+                    var rows = dojo.query('.dojoDndItem .dndIdentifier > div', cols[c]);
+                    var reverse = false;
+                    if (rows.length >= 2) {
+                        var top = rows[0];
+                        var bottom = rows[rows.length - 1];
+
+                        var _top = dojo._abs(top);
+                        var _bottom = dojo._abs(bottom);
+
+                        while (_top && _bottom && _top.y == _bottom.y) {
+                            top = top.offsetParent;
+                            bottom = bottom.offsetParent;
+                            _top = dojo._abs(top);
+                            _bottom = dojo._abs(bottom);
+                        }
+
+                        if (_top.y > _bottom.y) {
+                            reverse = true;
+                        }
+
+                    }
+                    for (var r = 0 ; r < rows.length ; r++) {
+                        var pid = rows[r].id.split("portlet_")[1];
+                        if (reverse) {
+                            params = params + '&' + pid + '_row=' + (rows.length - r - 1);
+                        } else {
+                            params = params + '&' + pid + '_row=' + r;
+                        }
+                        params = params + '&' + pid + '_col=' + c;
+                    }
+                }
+
+                url = "$!jslink.getPage().addQueryData('template', 'CustomizeFormJSONScreen').addQueryData('mode', 'layout')" + params;
+                aipo.customize.submit(url, '$!portlet.ID', function(){
+                });
+
+                var iframe = dojo.query('.gadgets-gadget-content iframe', nodes[0]);
+                if(iframe && iframe.length == 1) {
+                  var pid = iframe[0].id.split("remote_iframe_")[1].split("_NN_")[0];
+                  var gadgets_ = aipo.container.gadgets_;
+                  for(var i in gadgets_) {
+                     var gadget = gadgets_[i];
+                     if(gadget.portletId == pid) {
+                       aipo.container.renderGadget(gadget);
+                       break;
+                     }
+                  }
+                }
+
+                dojo.removeClass(this.node, 'dojoDndContainerItemOver');
+            }
+        });
+    }
+    var underlay = new aimluck.widget.DialogUnderlay({ templateString: "<div class=modalDialogUnderlayWrapper id='$!{id}_underlay'><div dojoAttachPoint='node'></div></div>" });
+    dojo.connect(underlay.domNode, "onmousemove", underlay.domNode, function(){
+        underlay.hide();
+    });
+    underlay.show();
+});
+#end
+function activitySwitch(){
+    var wrapper = document.getElementById('wrapper');
+    var header = document.getElementById('mobileHeader_v3');
+    var popup = dojo.query('.dijitPopup');
+    if(popup[0] == null) {
+        wrapper.style.minHeight = '';
+    } else {
+        var popupHeight= popup?popup[0].clientHeight:0;
+        var headerHeight = header?header.clientHeight:0;
+        var minHeight = popupHeight + headerHeight;
+        wrapper.style.minHeight = minHeight +  'px';
+    }
+}
+//]]>
+</script>
+
+<iframe id="sharedStateIframe" name="sharedStateIframe" src="about:blank" frameborder="no" scrolling="no" width="0" height="0"></iframe>
+#if("$!{client}" == "IE" && ("$!{clientVer}" == "6" || "$!{clientVer}" == "7" || "$!{clientVer}" == "8"))
+  #ALjavascript("javascript/aipo/common.js")
+#else
+  #ALjavascriptdefer("javascript/aipo/common.js")
+#end
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>aipo</artifactId>
+    <groupId>com.aimluck.eip</groupId>
+    <version>7.0.2</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>com.aimluck.eip</groupId>
+  <artifactId>lib</artifactId>
+  <version>7.0.2</version>
+  <packaging>pom</packaging>
+
+  <name>Aipo Libraries</name>
+
+  <modules>
+    <module>config</module>
+    <module>accessctl</module>
+    <module>addressbookuser</module>
+    <module>category</module>
+    <module>eventlog</module>
+    <module>facility</module>
+    <module>mail</module>
+    <module>user</module>
+    <module>userfacility</module>
+    <module>social</module>
+    <module>storage</module>
+    <module>portal</module>
+    <module>preexecute</module>
+  </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.aimluck.eip</groupId>
+      <artifactId>aipo-core</artifactId>
+      <version>${aipo.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

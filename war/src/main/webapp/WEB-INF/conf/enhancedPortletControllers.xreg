@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Aipo is a groupware program developed by Aimluck,Inc.
+    Copyright (C) 2004-2011 Aimluck,Inc.
+    http://www.aipo.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<registry>
+    <portlet-controller-entry name="XTwoColumns1" hidden="false">
+        <meta-info>
+            <title>拡張二列 (50/50)</title>
+        </meta-info>
+        <classname>com.aimluck.eip.portal.controllers.ALVelocityPortletController</classname>
+        <parameter name="template" value="multicolumn.vm" hidden="false"/>
+        <parameter name="action"
+            value="controllers.XALMultiColumnControllerAction" hidden="false"/>
+        <parameter name="sizes" value="50%,50%" hidden="false"/>
+        <parameter name="cols" value="2" hidden="false"/>
+        <media-type ref="html"/>
+    </portlet-controller-entry>
+    <portlet-controller-entry name="XTwoColumns2" hidden="false">
+        <meta-info>
+            <title>拡張二列 (25/75)</title>
+        </meta-info>
+        <classname>com.aimluck.eip.portal.controllers.ALVelocityPortletController</classname>
+        <parameter name="template" value="multicolumn.vm" hidden="false"/>
+        <parameter name="action"
+            value="controllers.XALMultiColumnControllerAction" hidden="false"/>
+        <parameter name="sizes" value="25%,75%" hidden="false"/>
+        <parameter name="cols" value="2" hidden="false"/>
+        <media-type ref="html"/>
+    </portlet-controller-entry>
+    <portlet-controller-entry name="XTwoColumns3" hidden="false">
+        <meta-info>
+            <title>拡張二列 (75/25)</title>
+        </meta-info>
+        <classname>com.aimluck.eip.portal.controllers.ALVelocityPortletController</classname>
+        <parameter name="template" value="multicolumn.vm" hidden="false"/>
+        <parameter name="action"
+            value="controllers.XALMultiColumnControllerAction" hidden="false"/>
+        <parameter name="sizes" value="75%,25%" hidden="false"/>
+        <parameter name="cols" value="2" hidden="false"/>
+        <media-type ref="html"/>
+    </portlet-controller-entry>
+    <portlet-controller-entry name="XThreeColumns1" hidden="false">
+        <meta-info>
+            <title>拡張三列 (33/34/33)</title>
+        </meta-info>
+        <classname>com.aimluck.eip.portal.controllers.ALVelocityPortletController</classname>
+        <parameter name="template" value="multicolumn.vm" hidden="false"/>
+        <parameter name="action"
+            value="controllers.XALMultiColumnControllerAction" hidden="false"/>
+        <parameter name="sizes" value="33%,34%,33%" hidden="false"/>
+        <parameter name="cols" value="3" hidden="false"/>
+        <media-type ref="html"/>
+    </portlet-controller-entry>
+    <portlet-controller-entry name="XThreeColumns2" hidden="false">
+        <meta-info>
+            <title>拡張三列 (25/50/25)</title>
+        </meta-info>
+        <classname>com.aimluck.eip.portal.controllers.ALVelocityPortletController</classname>
+        <parameter name="template" value="multicolumn.vm" hidden="false"/>
+        <parameter name="action"
+            value="controllers.XALMultiColumnControllerAction" hidden="false"/>
+        <parameter name="sizes" value="25%,50%,25%" hidden="false"/>
+        <parameter name="cols" value="3" hidden="false"/>
+        <media-type ref="html"/>
+    </portlet-controller-entry>
+</registry>

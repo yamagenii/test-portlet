@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Aipo is a groupware program developed by Aimluck,Inc.
+    Copyright (C) 2004-2011 Aimluck,Inc.
+    http://www.aipo.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+    "http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
+
+<web-app>
+    <display-name>Aipo</display-name>
+    <servlet>
+        <servlet-name>
+           aipo
+        </servlet-name>
+        <servlet-class>
+            org.apache.turbine.Turbine
+        </servlet-class>
+
+        <init-param>
+            <param-name>properties</param-name>
+            <param-value>
+              WEB-INF/conf/JetspeedJResources.properties
+            </param-value>
+        </init-param>
+        <init-param>
+            <param-name>resources</param-name>
+            <param-value>org.apache.jetspeed.services.resources.JetspeedResourceService</param-value>
+        </init-param>
+        <init-param>
+            <param-name>logging</param-name>
+            <param-value>org.apache.jetspeed.services.logging.JetspeedLoggingService</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <filter>
+      <filter-name>migrateFilter</filter-name>
+      <filter-class>com.aimluck.eip.filter.ALMigrateFilter</filter-class>
+    </filter>
+
+    <filter>
+      <filter-name>baseFilter</filter-name>
+      <filter-class>com.aimluck.eip.filter.ALBaseFilter</filter-class>
+    </filter>
+
+    <filter>
+      <filter-name>authFilter</filter-name>
+      <filter-class>com.aimluck.eip.filter.ALDigestAuthenticationFilter</filter-class>
+    </filter>
+
+    <servlet-mapping>
+       <servlet-name>
+          aipo
+       </servlet-name>
+       <url-pattern>
+         /portal/*
+       </url-pattern>
+       <servlet-name>
+          aipo
+       </servlet-name>
+       <url-pattern>
+         /ical/*
+       </url-pattern>
+    </servlet-mapping>
+
+   <filter-mapping>
+     <filter-name>migrateFilter</filter-name>
+     <url-pattern>/portal/*</url-pattern>
+     <url-pattern>/ical/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+   <filter-mapping>
+     <filter-name>baseFilter</filter-name>
+     <url-pattern>/portal/*</url-pattern>
+     <url-pattern>/ical/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+   <filter-mapping>
+     <filter-name>authFilter</filter-name>
+     <url-pattern>/ical/*</url-pattern>
+     <dispatcher>REQUEST</dispatcher>
+     <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <welcome-file-list>
+      <welcome-file>index.jsp</welcome-file>
+      <welcome-file>index.wml</welcome-file>
+      <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+      <error-code>400</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>403</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>404</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>405</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>406</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>408</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>409</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>410</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>500</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>501</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+    <error-page>
+      <error-code>505</error-code>
+      <location>/error/404.html</location>
+    </error-page>
+
+</web-app>

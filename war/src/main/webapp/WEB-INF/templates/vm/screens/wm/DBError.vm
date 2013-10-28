@@ -1,0 +1,48 @@
+#*
+ * Aipo is a groupware program developed by Aimluck,Inc.
+ * Copyright (C) 2004-2011 Aimluck,Inc.
+ * http://www.aipo.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *#
+
+## ---------------------------------------------------------------------------
+#set($career = 'iphone')
+#ALcell_pagetitle_iphone($career "$l10n.ERROR_PAGE_NOT_FOUND1")
+#ALcell_contents_header($career)
+
+$l10n.WAR_DATABASE_ERROR_AND_REASON<br />
+<br />
+<ul>
+  <li>$l10n.ERROR_WRONG_URL</li>
+  <li>$l10n.WAR_STOP_DATABACE</li>
+</ul>
+
+$l10n.WAR_AGAIN<br />
+<br />
+
+#if($config.getString("support.mail"))
+
+<br />
+$l10n.WAR_NO_ERROR_URL_INQUILY
+<br />
+[e-mail : <a href="mailto:$config.getString("support.mail")">$config.getString("support.mail")</a> ]
+<br />
+<br />
+
+#end
+
+<a class="btn" href="${context_path}/portal">$l10n.WORKFLOW_BACK</a>
+
+#ALcell_contents_footer($career)

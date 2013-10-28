@@ -1,0 +1,28 @@
+${userName}(${mailAddress})${addScheduleMSG}
+
+${title}
+${titleValue}
+${date}
+${dateValue}
+#if(${placeValue})
+${place}
+${placeValue}
+#end
+#if(${noteValue})
+${note}
+${noteValue}
+#end
+#if(${menbersList})
+${menbers}
+${menbersList}
+#end
+
+[${Alias}${accessTo}]
+#if(${globalUrl1})
+　${globalUrl1}
+#else
+${outsideOffice}　${globalurl2}
+${insideOffice}　${globalUrl3}
+#end
+---------------------
+${Alias}

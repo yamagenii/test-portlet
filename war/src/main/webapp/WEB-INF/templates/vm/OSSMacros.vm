@@ -1,0 +1,9 @@
+#macro(ALSupport)
+##
+#end
+#macro(ALUnreadchecker)
+##
+#end
+#macro(ALMessage)
+##
+#end
