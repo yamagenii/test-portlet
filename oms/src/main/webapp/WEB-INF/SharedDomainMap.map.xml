@@ -421,6 +421,14 @@
 		<db-attribute name="TYPE" type="VARCHAR" length="1"/>
 		<db-attribute name="USER_ID" type="INTEGER" isMandatory="true" length="4"/>
 	</db-entity>
+	<db-entity name="eip_t_test">
+		<db-attribute name="CREATE_DATE" type="DATE" length="4"/>
+		<db-attribute name="NOTE" type="VARCHAR"/>
+		<db-attribute name="TEST_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="4"/>
+		<db-attribute name="TEST_NAME" type="VARCHAR" length="99"/>
+		<db-attribute name="UPDATE_DATE" type="TIMESTAMP" length="8"/>
+		<db-attribute name="USER_ID" type="INTEGER" isMandatory="true" length="4"/>
+	</db-entity>
 	<db-entity name="eip_t_timecard">
 		<db-attribute name="CREATE_DATE" type="TIMESTAMP" length="8"/>
 		<db-attribute name="REASON" type="CLOB"/>
@@ -955,6 +963,13 @@
 		<obj-attribute name="type" type="java.lang.String" db-attribute-path="TYPE"/>
 		<obj-attribute name="userId" type="java.lang.Integer" db-attribute-path="USER_ID"/>
 	</obj-entity>
+	<obj-entity name="EipTTest" className="com.aimluck.eip.cayenne.om.portlet.EipTTest" dbEntityName="eip_t_test">
+		<obj-attribute name="createDate" type="java.util.Date" db-attribute-path="CREATE_DATE"/>
+		<obj-attribute name="note" type="java.lang.String" db-attribute-path="NOTE"/>
+		<obj-attribute name="testName" type="java.lang.String" db-attribute-path="TEST_NAME"/>
+		<obj-attribute name="updateDate" type="java.util.Date" db-attribute-path="UPDATE_DATE"/>
+		<obj-attribute name="userId" type="java.lang.Integer" db-attribute-path="USER_ID"/>
+	</obj-entity>
 	<obj-entity name="EipTTimecard" className="com.aimluck.eip.cayenne.om.portlet.EipTTimecard" dbEntityName="eip_t_timecard">
 		<obj-attribute name="createDate" type="java.util.Date" db-attribute-path="CREATE_DATE"/>
 		<obj-attribute name="reason" type="java.lang.String" db-attribute-path="REASON"/>
@@ -1279,6 +1294,9 @@
 	<db-relationship name="turbineUserGroupRole" source="eip_t_schedule_map" target="turbine_user_group_role" toMany="false">
 		<db-attribute-pair source="USER_ID" target="USER_ID"/>
 	</db-relationship>
+	<db-relationship name="turbineUser" source="eip_t_test" target="turbine_user" toMany="false">
+		<db-attribute-pair source="USER_ID" target="USER_ID"/>
+	</db-relationship>
 	<db-relationship name="eipTTimelineFile" source="eip_t_timeline" target="eip_t_timeline_file" toMany="true">
 		<db-attribute-pair source="TIMELINE_ID" target="TIMELINE_ID"/>
 	</db-relationship>
@@ -1409,6 +1427,7 @@
 	<obj-relationship name="eipTCommonCategory" source="EipTScheduleMap" target="EipTCommonCategory" db-relationship-path="eipTCommonCategory"/>
 	<obj-relationship name="eipTSchedule" source="EipTScheduleMap" target="EipTSchedule" db-relationship-path="eipTSchedule"/>
 	<obj-relationship name="turbineUserGroupRole" source="EipTScheduleMap" target="TurbineUserGroupRole" db-relationship-path="turbineUserGroupRole"/>
+	<obj-relationship name="turbineUser" source="EipTTest" target="TurbineUser" db-relationship-path="turbineUser"/>
 	<obj-relationship name="eipTTimelineFile" source="EipTTimeline" target="EipTTimelineFile" deleteRule="Nullify" db-relationship-path="eipTTimelineFile"/>
 	<obj-relationship name="eipTTimelineLike" source="EipTTimeline" target="EipTTimelineLike" deleteRule="Nullify" db-relationship-path="eipTTimelineLike"/>
 	<obj-relationship name="turbineUser" source="EipTTimeline" target="TurbineUser" db-relationship-path="turbineUser"/>
