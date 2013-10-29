@@ -45,6 +45,7 @@
     <module>report</module>
     <module>schedule</module>
     <module>system</module>
+    <module>test</module>
     <module>timecard</module>
     <module>timeline</module>
     <module>todo</module>
