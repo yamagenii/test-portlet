@@ -45,7 +45,7 @@ $!result.Detail.TestName
 #ALajaxbuttonEditCallback("$!jslink.getPortletById($!portlet.ID).addQueryData('template','TestFormScreen').addQueryData('entityid',$entityid)" "$!portlet.ID" "aipo.todo.onLoadTodoDialog")
 #end
 #if($result.Detail.hasAclDeleteTestOther())
-#ALajaxbuttonDelete("$!jslink.getPortletById($!portlet.ID).addQueryData('template','TestFormJSONScreen').addQueryData('entityid',$entityid).addQueryData('mode', 'delete')" "$indicator_id" "$!portlet.ID" "aipo.todo.onReceiveMessage")
+#ALajaxbuttonDelete("$!jslink.getPortletById($!portlet.ID).addQueryData('template','TestFormJSONScreen').addQueryData('entityid',$entityid).addQueryData('mode', 'delete')" "$indicator_id" "$!portlet.ID" "aipo.test.onReceiveMessage")
 #end
 #end
 #ALajaxbuttonClose()

@@ -29,6 +29,8 @@ import org.apache.velocity.context.Context;
 import com.aimluck.eip.common.ALEipConstants;
 import com.aimluck.eip.test.TestFormData;
 import com.aimluck.eip.test.TestMultiDelete;
+import com.aimluck.eip.test.TestFormData;
+import com.aimluck.eip.test.TestMultiDelete;
 
 /**
  * TestをJSONデータとして出力するクラスです。 <br />
@@ -36,79 +38,64 @@ import com.aimluck.eip.test.TestMultiDelete;
  */
 public class TestFormJSONScreen extends ALJSONScreen {
 
-  /** logger */
-  private static final JetspeedLogger logger = JetspeedLogFactoryService
-    .getLogger(TestFormJSONScreen.class.getName());
+	  /** logger */
+	  private static final JetspeedLogger logger =
+	    JetspeedLogFactoryService.getLogger(TestFormJSONScreen.class.getName());
 
-  @Override
-  protected String getJSONString(RunData rundata, Context context)
-      throws Exception {
-    String result = new JSONArray().toString();
-    String mode = this.getMode();
-    try {
+	  /**
+	   *
+	   */
+	  @Override
+	  protected String getJSONString(RunData rundata, Context context)
+	      throws Exception {
+	    String result = new JSONArray().toString();
+	    String mode = this.getMode();
+	    try {
 
-      if (ALEipConstants.MODE_INSERT.equals(mode)) {
-        //
-        TestFormData formData = new TestFormData();
-        formData.initField();
-//        formData.loadCategoryList(rundata);
-        if (formData.doInsert(this, rundata, context)) {
-        } else {
-          JSONArray json =
-            JSONArray
-              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
-          result = json.toString();
-        }
+	      if (ALEipConstants.MODE_INSERT.equals(mode)) {
+	        TestFormData formData = new TestFormData();
+	        formData.initField();
+	        if (formData.doInsert(this, rundata, context)) {
+	        } else {
+	          JSONArray json =
+	            JSONArray
+	              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
+	          result = json.toString();
+	        }
+	      } else if (ALEipConstants.MODE_UPDATE.equals(mode)) {
+	        TestFormData formData = new TestFormData();
+	        formData.initField();
+	        if (formData.doUpdate(this, rundata, context)) {
+	        } else {
+	          JSONArray json =
+	            JSONArray
+	              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
+	          result = json.toString();
+	        }
+	      } else if (ALEipConstants.MODE_DELETE.equals(mode)) {
+	        TestFormData formData = new TestFormData();
+	        formData.initField();
+	        if (formData.doDelete(this, rundata, context)) {
+	        } else {
+	          JSONArray json =
+	            JSONArray
+	              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
+	          result = json.toString();
+	        }
+	      } else if ("multi_delete".equals(mode)) {
+	        TestMultiDelete delete = new TestMultiDelete();
+	        if (delete.doMultiAction(this, rundata, context)) {
+	        } else {
+	          JSONArray json =
+	            JSONArray
+	              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
+	          result = json.toString();
+	        }
+	      }
+	    } catch (Exception e) {
+	      logger.error("[TestFormJSONScreen]", e);
+	    }
 
-      } else if (ALEipConstants.MODE_UPDATE.equals(mode)) {
-
-        TestFormData formData = new TestFormData();
-        formData.initField();
-//        formData.loadCategoryList(rundata);
-        if (formData.doUpdate(this, rundata, context)) {
-        } else {
-          JSONArray json =
-            JSONArray
-              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
-          result = json.toString();
-        }
-      } else if (ALEipConstants.MODE_DELETE.equals(mode)) {
-
-        TestFormData formData = new TestFormData();
-        formData.initField();
-//        formData.loadCategoryList(rundata);
-        if (formData.doDelete(this, rundata, context)) {
-        } else {
-          JSONArray json =
-            JSONArray
-              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
-          result = json.toString();
-        }
-      } else if ("multi_delete".equals(mode)) {
-
-        TestMultiDelete delete = new TestMultiDelete();
-        if (delete.doMultiAction(this, rundata, context)) {
-        } else {
-          JSONArray json =
-            JSONArray
-              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
-          result = json.toString();
-        }
-      } else if ("multi_complete".equals(mode)) {
-
-//        TestMultiStateUpdate delete = new TestMultiStateUpdate();
-//        if (delete.doMultiAction(this, rundata, context)) {
-//        } else {
-//          JSONArray json =
-//            JSONArray
-//              .fromObject(context.get(ALEipConstants.ERROR_MESSAGE_LIST));
-//          result = json.toString();
-//        }
-      }
-    } catch (Exception e) {
-      logger.error("[TestFormJSONScreen]", e);
-    }
-
-    return result;
-  }
-}
+	    return result;
+	  }
+	}
