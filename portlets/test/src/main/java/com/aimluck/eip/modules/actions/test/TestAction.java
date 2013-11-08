@@ -84,9 +84,9 @@ public class TestAction extends ALBaseAction {
     listData.setRowsNum(Integer.parseInt(portlet
       .getPortletConfig()
       .getInitParameter("p1a-rows")));
-    listData.setTableColumNum(Integer.parseInt(portlet
-      .getPortletConfig()
-      .getInitParameter("p0e-rows")));
+//    listData.setTableColumNum(Integer.parseInt(portlet
+//      .getPortletConfig()
+//      .getInitParameter("p0e-rows")));
 
     listData.setFiltersPSML(portlet, context, rundata);
 
