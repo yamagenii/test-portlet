@@ -45,6 +45,7 @@
 <input type="hidden" name="user_id" value="$!result.loginUserId"/>
 #else
 <input type="hidden" name="mode" value="update" />
+<input type="hidden" name="user_id" value="$!result.loginUserId"/>
 #end
 #ALtableheaderWide()
 #ALtdcaption("#ALrequired($!result.getFieldName('test_name'))")
