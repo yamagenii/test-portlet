@@ -108,6 +108,12 @@
 				<property name="row" value="2" />
 			</layout>
 		</entry>
+		<entry parent="Test">
+			<layout position="-1" size="-1">
+				<property name="column" value="2" />
+				<property name="row" value="3" />
+			</layout>
+		</entry>
 	</portlets>
 	<portlets>
 		<metainfo>
