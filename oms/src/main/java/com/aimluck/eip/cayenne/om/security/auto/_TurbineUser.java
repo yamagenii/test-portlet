@@ -46,6 +46,7 @@ public class _TurbineUser extends org.apache.cayenne.CayenneDataObject {
     public static final String EIP_TEVENTLOG_PROPERTY = "eipTEventlog";
     public static final String EIP_TMSGBOARD_CATEGORY_PROPERTY = "eipTMsgboardCategory";
     public static final String EIP_TREPORT_PROPERTY = "eipTReport";
+    public static final String EIP_TTEST_PROPERTY = "eipTTest";
     public static final String EIP_TTIMELINE_PROPERTY = "eipTTimeline";
     public static final String EIP_TTIMELINE_LIKE_PROPERTY = "eipTTimelineLike";
     public static final String EIP_TTIMELINE_LIKE1_PROPERTY = "eipTTimelineLike1";
@@ -365,6 +366,17 @@ public class _TurbineUser extends org.apache.cayenne.CayenneDataObject {
     }
     public List getEipTReport() {
         return (List)readProperty("eipTReport");
+    }
+    
+    
+    public void addToEipTTest(com.aimluck.eip.cayenne.om.portlet.EipTTest obj) {
+        addToManyTarget("eipTTest", obj, true);
+    }
+    public void removeFromEipTTest(com.aimluck.eip.cayenne.om.portlet.EipTTest obj) {
+        removeToManyTarget("eipTTest", obj, true);
+    }
+    public List getEipTTest() {
+        return (List)readProperty("eipTTest");
     }
     
     

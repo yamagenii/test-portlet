@@ -424,7 +424,7 @@
 	<db-entity name="eip_t_test">
 		<db-attribute name="CREATE_DATE" type="DATE" length="4"/>
 		<db-attribute name="NOTE" type="VARCHAR"/>
-		<db-attribute name="TEST_ID" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="4"/>
+		<db-attribute name="TEST_ID" type="INTEGER" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="4"/>
 		<db-attribute name="TEST_NAME" type="VARCHAR" length="99"/>
 		<db-attribute name="UPDATE_DATE" type="TIMESTAMP" length="8"/>
 		<db-attribute name="USER_ID" type="INTEGER" isMandatory="true" length="4"/>

@@ -230,6 +230,7 @@
 	<obj-relationship name="eipTTimelineLike" source="TurbineUser" target="EipTTimelineLike" db-relationship-path="EipTTimelineLike"/>
 	<obj-relationship name="eipTTimelineLike1" source="TurbineUser" target="EipTTimelineLike" db-relationship-path="eipTTimelineLike"/>
 	<obj-relationship name="eipTTodo" source="TurbineUser" target="EipTTodo" db-relationship-path="eipTTodo"/>
+	<obj-relationship name="eipTTest" source="TurbineUser" target="EipTTest" db-relationship-path="eipTTest"/>
 	<obj-relationship name="eipTTodoCategory" source="TurbineUser" target="EipTTodoCategory" db-relationship-path="eipTTodoCategory"/>
 	<obj-relationship name="eipTWorkflowRequest" source="TurbineUser" target="EipTWorkflowRequest" db-relationship-path="eipTWorkflowRequest"/>
 	<obj-relationship name="turbineUserGroupRole" source="TurbineUser" target="TurbineUserGroupRole" db-relationship-path="turbineUserGroupRole"/>
