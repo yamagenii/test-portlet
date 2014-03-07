@@ -158,9 +158,6 @@
 	<db-relationship name="turbineRole" source="turbine_role_permission" target="turbine_role" toMany="false">
 		<db-attribute-pair source="ROLE_ID" target="ROLE_ID"/>
 	</db-relationship>
-	<db-relationship name="EipTTimelineLike" source="turbine_user" target="eip_t_timeline_like" toMany="true">
-		<db-attribute-pair source="USER_ID" target="OWNER_ID"/>
-	</db-relationship>
 	<db-relationship name="eipMUserPosition" source="turbine_user" target="eip_m_user_position" toMany="false">
 		<db-attribute-pair source="USER_ID" target="USER_ID"/>
 	</db-relationship>
@@ -226,11 +223,10 @@
 	<obj-relationship name="eipTEventlog" source="TurbineUser" target="EipTEventlog" db-relationship-path="eipTEventlog"/>
 	<obj-relationship name="eipTMsgboardCategory" source="TurbineUser" target="EipTMsgboardCategory" db-relationship-path="eipTMsgboardCategory"/>
 	<obj-relationship name="eipTReport" source="TurbineUser" target="EipTReport" db-relationship-path="eipTReport"/>
-	<obj-relationship name="eipTTimeline" source="TurbineUser" target="EipTTimeline" db-relationship-path="eipTTimeline"/>
-	<obj-relationship name="eipTTimelineLike" source="TurbineUser" target="EipTTimelineLike" db-relationship-path="EipTTimelineLike"/>
-	<obj-relationship name="eipTTimelineLike1" source="TurbineUser" target="EipTTimelineLike" db-relationship-path="eipTTimelineLike"/>
-	<obj-relationship name="eipTTodo" source="TurbineUser" target="EipTTodo" db-relationship-path="eipTTodo"/>
 	<obj-relationship name="eipTTest" source="TurbineUser" target="EipTTest" db-relationship-path="eipTTest"/>
+	<obj-relationship name="eipTTimeline" source="TurbineUser" target="EipTTimeline" db-relationship-path="eipTTimeline"/>
+	<obj-relationship name="eipTTimelineLike" source="TurbineUser" target="EipTTimelineLike" db-relationship-path="eipTTimelineLike"/>
+	<obj-relationship name="eipTTodo" source="TurbineUser" target="EipTTodo" db-relationship-path="eipTTodo"/>
 	<obj-relationship name="eipTTodoCategory" source="TurbineUser" target="EipTTodoCategory" db-relationship-path="eipTTodoCategory"/>
 	<obj-relationship name="eipTWorkflowRequest" source="TurbineUser" target="EipTWorkflowRequest" db-relationship-path="eipTWorkflowRequest"/>
 	<obj-relationship name="turbineUserGroupRole" source="TurbineUser" target="TurbineUserGroupRole" db-relationship-path="turbineUserGroupRole"/>
