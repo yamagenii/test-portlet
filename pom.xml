@@ -266,6 +266,11 @@
       <type>jar</type>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>9.3-1101-jdbc3</version>
+    </dependency>
   </dependencies>
 
   <reporting>
