@@ -227,7 +227,7 @@ public class TestFormData extends ALAbstractFormData {
     note.setTrim(false);
     //URL
     url = new ALStringField();
-    url.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_MEMO"));
+    url.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_URL"));
     url.setTrim(false);
     // 開始日
 //    start_date = new ALDateField();
