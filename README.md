@@ -2,6 +2,7 @@ test-portlet
 ====
 
 Aipoでのテストアプリの作成用リポジトリです。
+ryosuke yamamoto
 
 
 関連情報
