@@ -23,7 +23,7 @@
     <portlet-entry name="Test" hidden="false" type="ref" parent="Velocity" application="false">
         <security-ref parent="user-view"/>
         <meta-info>
-            <title>Test</title>
+            <title>ブックマーク</title>
             <description>テストポートレットです。</description>
         </meta-info>
         <classname>org.apache.jetspeed.portal.portlets.VelocityPortlet</classname>
