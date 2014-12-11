@@ -427,6 +427,7 @@
 		<db-attribute name="TEST_ID" type="INTEGER" isPrimaryKey="true" isGenerated="true" isMandatory="true" length="4"/>
 		<db-attribute name="TEST_NAME" type="VARCHAR" length="99"/>
 		<db-attribute name="UPDATE_DATE" type="TIMESTAMP" length="8"/>
+		<db-attribute name="URL" type="TIMESTAMP"/>
 		<db-attribute name="USER_ID" type="INTEGER" isMandatory="true" length="4"/>
 	</db-entity>
 	<db-entity name="eip_t_timecard">
@@ -968,7 +969,14 @@
 		<obj-attribute name="note" type="java.lang.String" db-attribute-path="NOTE"/>
 		<obj-attribute name="testName" type="java.lang.String" db-attribute-path="TEST_NAME"/>
 		<obj-attribute name="updateDate" type="java.util.Date" db-attribute-path="UPDATE_DATE"/>
-		<obj-attribute name="userId" type="java.lang.Integer" db-attribute-path="USER_ID"/>
+		<obj-attribute name="url" type="java.lang.String" db-attribute-path="URL"/>
+	</obj-entity>
+	<obj-entity name="EipTTest1" className="com.aimluck.eip.cayenne.om.portlet.EipTTest1" dbEntityName="eip_t_test">
+		<obj-attribute name="createDate" type="java.util.Date" db-attribute-path="CREATE_DATE"/>
+		<obj-attribute name="note" type="java.lang.String" db-attribute-path="NOTE"/>
+		<obj-attribute name="testName" type="java.lang.String" db-attribute-path="TEST_NAME"/>
+		<obj-attribute name="updateDate" type="java.util.Date" db-attribute-path="UPDATE_DATE"/>
+		<obj-attribute name="url" type="java.lang.String" db-attribute-path="URL"/>
 	</obj-entity>
 	<obj-entity name="EipTTimecard" className="com.aimluck.eip.cayenne.om.portlet.EipTTimecard" dbEntityName="eip_t_timecard">
 		<obj-attribute name="createDate" type="java.util.Date" db-attribute-path="CREATE_DATE"/>
@@ -1428,6 +1436,7 @@
 	<obj-relationship name="eipTSchedule" source="EipTScheduleMap" target="EipTSchedule" db-relationship-path="eipTSchedule"/>
 	<obj-relationship name="turbineUserGroupRole" source="EipTScheduleMap" target="TurbineUserGroupRole" db-relationship-path="turbineUserGroupRole"/>
 	<obj-relationship name="turbineUser" source="EipTTest" target="TurbineUser" db-relationship-path="turbineUser"/>
+	<obj-relationship name="turbineUser" source="EipTTest1" target="TurbineUser" db-relationship-path="turbineUser"/>
 	<obj-relationship name="eipTTimelineFile" source="EipTTimeline" target="EipTTimelineFile" deleteRule="Nullify" db-relationship-path="eipTTimelineFile"/>
 	<obj-relationship name="eipTTimelineLike" source="EipTTimeline" target="EipTTimelineLike" deleteRule="Nullify" db-relationship-path="eipTTimelineLike"/>
 	<obj-relationship name="turbineUser" source="EipTTimeline" target="TurbineUser" db-relationship-path="turbineUser"/>

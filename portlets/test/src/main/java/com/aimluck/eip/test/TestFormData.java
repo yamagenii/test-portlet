@@ -94,6 +94,9 @@ public class TestFormData extends ALAbstractFormData {
   /** メモ */
   private ALStringField note;
 
+  /** URL */
+  private ALStringField url;
+
   /** 開始日 */
 //  private ALDateField start_date;
 
@@ -222,6 +225,10 @@ public class TestFormData extends ALAbstractFormData {
     note = new ALStringField();
     note.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_MEMO"));
     note.setTrim(false);
+    //URL
+    url = new ALStringField();
+    url.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_MEMO"));
+    url.setTrim(false);
     // 開始日
 //    start_date = new ALDateField();
 //    start_date.setFieldName(ALLocalizationUtils
@@ -283,6 +290,8 @@ public class TestFormData extends ALAbstractFormData {
     test_name.limitMaxLength(50);
     // メモの文字数制限
     note.limitMaxLength(1000);
+    //URLの文字制限
+    url.limitMaxLength(100);
 //    if (is_new_category) {
 //      // カテゴリ名必須項目
 //      category_name.setNotNull(true);
@@ -360,6 +369,8 @@ public class TestFormData extends ALAbstractFormData {
 //    }
     // メモ
     note.validate(msgList);
+    // URL
+    url.validate(msgList);
 //    if (is_new_category) {
 //      // カテゴリ名
 //      category_name.validate(msgList);
@@ -414,6 +425,8 @@ public class TestFormData extends ALAbstractFormData {
 //      priority.setValue(test.getPriority().longValue());
       // メモ
       note.setValue(test.getNote());
+      // URL
+      url.setValue(test.getUrl());
       // 公開区分
 //      public_flag.setValue(test.getPublicFlag());
 
@@ -523,6 +536,8 @@ public class TestFormData extends ALAbstractFormData {
 //      test.setPriority(Short.valueOf((short) priority.getValue()));
       // メモ
       test.setNote(note.getValue());
+      // URL
+      test.setNote(url.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -724,6 +739,8 @@ public class TestFormData extends ALAbstractFormData {
 //      test.setPriority(Short.valueOf((short) priority.getValue()));
       // メモ
       test.setNote(note.getValue());
+      // url
+      test.setUrl(url.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -840,6 +857,15 @@ public class TestFormData extends ALAbstractFormData {
   public ALStringField getNote() {
     return note;
   }
+
+  /**
+   * URLを取得します。 <BR>
+   *
+   * @return
+   */
+  public ALStringField getUrl() {
+	    return url;
+	  }
 
   /**
    * 優先度を取得します。 <BR>
