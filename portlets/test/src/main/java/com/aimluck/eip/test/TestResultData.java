@@ -254,6 +254,13 @@ public class TestResultData implements ALData {
   /**
    * @return
    */
+  public String getUrlHtml() {
+    return url.getValue();
+  }
+
+  /**
+   * @return
+   */
   public String getUrl() {
     return ALEipUtils.getMessageList(url.getValue());
   }
@@ -285,6 +292,13 @@ public class TestResultData implements ALData {
    * @param string
    */
   public void setUrl(String string) {
+    url.setValue(string);
+  }
+
+  /**
+   * @param string
+   */
+  public void setUrlHtml(String string) {
     url.setValue(string);
   }
 
