@@ -84,6 +84,7 @@
 <tr>
 #ALtdheadAtt("#ALswitchCheckbox()" "class='thin center'")
 <th>#ALajaxsort('test_name' $l10n.TODO_TITLE $result 'TestListScreen')</th>
+<th>$l10n.TODO_URL</th>
 </tr>
 #foreach ($record in $result.List)
 <tr>
