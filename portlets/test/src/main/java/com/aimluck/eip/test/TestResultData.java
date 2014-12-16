@@ -67,6 +67,9 @@ public class TestResultData implements ALData {
   /** メモ */
   private ALStringField note;
 
+  /** URL */
+  private ALStringField url;
+
   /** 公開/非公開フラグ */
 //  private boolean is_public;
 
@@ -122,6 +125,8 @@ public class TestResultData implements ALData {
 //    category_name = new ALStringField();
     note = new ALStringField();
     note.setTrim(false);
+    url = new ALStringField();
+    url.setTrim(false);
 //    start_date = new ALStringField();
 //    end_date = new ALStringField();
 //    priority_image = new ALStringField();
@@ -249,6 +254,13 @@ public class TestResultData implements ALData {
   /**
    * @return
    */
+  public String getUrl() {
+    return ALEipUtils.getMessageList(url.getValue());
+  }
+
+  /**
+   * @return
+   */
 //  public ALStringField getStartDate() {
 //    return start_date;
 //  }
@@ -267,6 +279,13 @@ public class TestResultData implements ALData {
    */
   public void setNote(String string) {
     note.setValue(string);
+  }
+
+  /**
+   * @param string
+   */
+  public void setUrl(String string) {
+    url.setValue(string);
   }
 
   /**

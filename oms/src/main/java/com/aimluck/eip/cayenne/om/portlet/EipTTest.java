@@ -7,6 +7,7 @@ import com.aimluck.eip.cayenne.om.portlet.auto._EipTTest;
 public class EipTTest extends _EipTTest {
 
   public static final String TEST_NAME_COLUMN = "TEST_NAME";
+public static String USER_ID_PROPERTY;
 
   public Integer getTestId() {
 

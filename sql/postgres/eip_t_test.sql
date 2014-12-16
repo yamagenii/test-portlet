@@ -17,4 +17,5 @@ CREATE TABLE EIP_T_TEST
 CREATE SEQUENCE pk_eip_t_test INCREMENT 20;
 ALTER SEQUENCE pk_eip_t_test OWNED BY EIP_T_TEST.TEST_ID;
 
+ALTER TABLE eip_t_test ADD COLUMN url character varying(99);
 
