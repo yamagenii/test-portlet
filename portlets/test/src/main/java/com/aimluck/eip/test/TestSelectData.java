@@ -465,6 +465,9 @@ public class TestSelectData extends
       rd.setTestName(ALCommonUtils.compressString(
         record.getTestName(),
         getStrLength()));
+      rd.setUrl(ALCommonUtils.compressString(
+    	        record.getUrl(),
+    	        getStrLength()));
 //      if (!TestUtils.isEmptyDate(record.getStartDate())) {
 //        rd.setStartDate(ALDateUtil
 //          .format(record.getStartDate(), "yyyy年M月d日(E)"));
