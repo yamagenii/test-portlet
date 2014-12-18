@@ -97,6 +97,10 @@ public class TestFormData extends ALAbstractFormData {
   /** URL */
   private ALStringField url;
 
+
+  /** 評価 */
+  private ALNumberField fiveValue;
+
   /** 開始日 */
 //  private ALDateField start_date;
 
@@ -229,6 +233,10 @@ public class TestFormData extends ALAbstractFormData {
     url = new ALStringField();
     url.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_URL"));
     url.setTrim(false);
+    //評価
+    fiveValue = new ALNumberField();
+    fiveValue.setFieldName(ALLocalizationUtils.getl10n("TODO_SETFIELDNAME_FIVEVALUE"));
+
     // 開始日
 //    start_date = new ALDateField();
 //    start_date.setFieldName(ALLocalizationUtils
@@ -371,6 +379,8 @@ public class TestFormData extends ALAbstractFormData {
     note.validate(msgList);
     // URL
     url.validate(msgList);
+ // 評価
+    fiveValue.validate(msgList);
 //    if (is_new_category) {
 //      // カテゴリ名
 //      category_name.validate(msgList);
@@ -427,6 +437,8 @@ public class TestFormData extends ALAbstractFormData {
       note.setValue(test.getNote());
       // URL
       url.setValue(test.getUrl());
+   // 評価
+      fiveValue.setValue(test.getFiveValue());
       // 公開区分
 //      public_flag.setValue(test.getPublicFlag());
 
@@ -538,6 +550,8 @@ public class TestFormData extends ALAbstractFormData {
       test.setNote(note.getValue());
       // URL
       test.setUrl(url.getValue());
+   // 評価
+      test.setFiveValue(fiveValue.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -741,6 +755,8 @@ public class TestFormData extends ALAbstractFormData {
       test.setNote(note.getValue());
       // url
       test.setUrl(url.getValue());
+   // 評価
+      test.setFiveValue(fiveValue.getValue());
       // 公開区分
 //      test.setPublicFlag(public_flag.getValue());
 //      test.setAddonScheduleFlg(addon_schedule_flg.getValue());
@@ -865,6 +881,15 @@ public class TestFormData extends ALAbstractFormData {
    */
   public ALStringField getUrl() {
 	    return url;
+	  }
+
+  /**
+   * 評価を取得します。 <BR>
+   *
+   * @return
+   */
+  public ALNumberField getFiveValue() {
+	    return fiveValue;
 	  }
 
   /**
