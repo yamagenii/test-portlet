@@ -571,7 +571,7 @@ public class TestSelectData extends
 //        .intValue()));
       rd.setNote(record.getNote());
       rd.setUrl(record.getUrl());
-      rd.setUrlHtml(record.getUrlHtml());
+      rd.setUrlHtml(record.getUrl());
 //      rd.setCreateUserName(ALEipUtils
 //        .getALEipUser(record.getCreateUserId())
 //        .getAliasName()
