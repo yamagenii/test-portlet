@@ -59,7 +59,14 @@
 #ALtditem("#ALtextfieldw100('url' $!result.Url 50 'active')")
 
 #ALtdcaption($!result.getFieldName("fiveValue"))
-#ALtditem("#ALtextfieldw100('fiveValue' $!result.FiveValue 50 'active')")
+<td>
+<input name="fiveValue" type="radio" value="1"#if ($!result.FiveValue == "1") checked#end>高い
+<input name="fiveValue" type="radio" value="2"#if ($!result.FiveValue == "2") checked#end>やや高い
+<input name="fiveValue" type="radio" checked = "checked" value="3"#if ($!result.FiveValue == "3") checked#end>普通
+<input name="fiveValue" type="radio" value="4"#if ($!result.FiveValue == "4") checked#end>やや低い
+<input name="fiveValue" type="radio" value="5"#if ($!result.FiveValue == "5") checked#end>低い
+</td>
+</tr>
 
 #ALtablefooter()
 #ALbuttonheader()

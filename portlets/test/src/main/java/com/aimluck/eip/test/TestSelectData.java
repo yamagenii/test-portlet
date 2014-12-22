@@ -468,6 +468,8 @@ public class TestSelectData extends
       rd.setUrl(ALCommonUtils.compressString(
     	        record.getUrl(),
     	        getStrLength()));
+      rd.setFiveValueString((ALCommonUtils.getFiveValueString(record.getFiveValue().intValue())));
+      rd.setFiveValueImage((ALCommonUtils.getFiveValueImage(record.getFiveValue().intValue())));
 //      if (!TestUtils.isEmptyDate(record.getStartDate())) {
 //        rd.setStartDate(ALDateUtil
 //          .format(record.getStartDate(), "yyyy年M月d日(E)"));
@@ -572,6 +574,8 @@ public class TestSelectData extends
       rd.setNote(record.getNote());
       rd.setUrl(record.getUrl());
       rd.setUrlHtml(record.getUrl());
+      rd.setFiveValueString((ALCommonUtils.getFiveValueString(record.getFiveValue().intValue())));
+      rd.setFiveValueImage((ALCommonUtils.getFiveValueImage(record.getFiveValue().intValue())));
 //      rd.setCreateUserName(ALEipUtils
 //        .getALEipUser(record.getCreateUserId())
 //        .getAliasName()

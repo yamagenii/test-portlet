@@ -70,6 +70,15 @@ public class TestResultData implements ALData {
   /** URL */
   private ALStringField url;
 
+  /** 評価 */
+  private ALNumberField fiveValue;
+
+  /** 評価(文字列) */
+  private ALStringField fiveValueString;
+
+  /** 評価(画像文字列) */
+  private ALStringField fiveValueImage;
+
   /** 公開/非公開フラグ */
 //  private boolean is_public;
 
@@ -127,6 +136,9 @@ public class TestResultData implements ALData {
     note.setTrim(false);
     url = new ALStringField();
     url.setTrim(false);
+    fiveValue = new ALNumberField();
+    fiveValueString = new ALStringField();
+    fiveValueImage = new ALStringField();
 //    start_date = new ALStringField();
 //    end_date = new ALStringField();
 //    priority_image = new ALStringField();
@@ -238,6 +250,26 @@ public class TestResultData implements ALData {
   }
 
   /**
+   * @param i
+   */
+  public void setFiveValue(long i) {
+    fiveValue.setValue(i);
+  }
+
+  /**
+   * @param string
+   */
+  public void setFiveValueString(String string) {
+    fiveValueString.setValue(string);
+  }
+
+  /**
+   * @param string
+   */
+  public void setFiveValueImage(String string) {
+    fiveValueImage.setValue(string);
+  }
+  /**
    * @param string
    */
   public void setTestName(String string) {
@@ -250,6 +282,27 @@ public class TestResultData implements ALData {
   public String getNote() {
     return ALEipUtils.getMessageList(note.getValue());
   }
+
+  /**
+   * @returnただの数字
+   */
+  public long getFiveValue() {
+    return fiveValue.getValue();
+  }
+
+  /**
+   * @return評価文字列
+   */
+  public String getFiveValueString() {
+	    return fiveValueString.getValue();
+	  }
+
+  /**
+   * @return評価画像文字列
+   */
+  public String getFiveValueImage() {
+	    return fiveValueImage.getValue();
+	  }
 
   /**
    * @return
